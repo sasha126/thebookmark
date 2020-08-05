@@ -17,7 +17,7 @@ class VirtualScribe extends Component {
          <React.Fragment>
              <h2> Virtual Scribe </h2>
              <textarea value={this.state.value} placeholder='Output of Virtual Scribe' onChange={this.handleChange}> </textarea>
-             <button> Press & Speak </button>
+             <button> Press and Speak </button>
          </React.Fragment> 
             )
         }

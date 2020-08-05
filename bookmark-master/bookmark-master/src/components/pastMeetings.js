@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 class PastMeetings extends Component {
-    constructor(props) {
-        super(props);
-      }
+   
     render() {
         const MeetingList = [
             { id: 1,
@@ -39,7 +37,7 @@ class PastMeetings extends Component {
           ];
 
           const Meetings = MeetingList.map(item => (
-            <li key={item.id}><a href="" >{item.title}</a></li>
+            <li key={item.id}><a href="#" >{item.title}</a></li>
             ))
         return (
           <React.Fragment>

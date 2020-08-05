@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 class DownloadLinks extends Component {
-    constructor(props) {
-        super(props);
-      }
     render() {
           const list = [
             { id: 1,

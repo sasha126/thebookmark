@@ -4,6 +4,7 @@ class Navbar extends Component {
     render() {
         return (
           <header>
+              
                <h1> THE BOOKMARK</h1> 
                 <nav>
                     <span></span>

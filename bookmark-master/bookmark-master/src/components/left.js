@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Summary from './summary';
-import DownloadLinks from './downloadLinks'
+import Summary from './Summary';
+import DownloadLinks from './DownloadLinks'
 class Left extends Component {
    
     render() {

@@ -17,7 +17,7 @@ font-family: 'Raleway';
 }
 
 header{
-  background: red;
+  background: #a9203a;
   padding: 20px 10px;
 }
 
@@ -81,7 +81,7 @@ main{
 }
 
 h2{
-  color: red;
+  color: #a9203a;
   margin-bottom: 10px;
 }
 
@@ -96,7 +96,7 @@ input[type="text"]{
 
 }
 input[type="text"]::placeholder{
-  color: rgb(91, 163, 163);
+  color: #292f31;
   font-size: 12px;
 
 }
@@ -107,7 +107,7 @@ input[type="text"]:focus{
 
 button{
   width: 100%;
-  background-color: red;
+  background-color: #a9203a;
   color: #ffffff;
   text-align: center;
   padding: 10px;
@@ -118,7 +118,7 @@ button{
   text-transform: uppercase;
 }
 input[type="submit"]{
-  background: red;
+  background: #a9203a;
   padding: 10px 5px;
   color: #ffffff;
   outline: none;
@@ -136,14 +136,14 @@ input[type="file"]{
 }
 
 .list-wrapper li{
-  background-color: #eaeaea;
-  color: red;
+  background-color: #cfd8de;
+  color: #a9203a;
   padding: 6px 15px 6px 40px; 
   position: relative;
   margin-bottom: 5px;
 }
 .list-wrapper a{
-  color: red;
+  color: #a9203a;
   font-size: 14px;
   text-decoration: none;
   display: inline-block;
@@ -167,7 +167,7 @@ input[type="file"]{
 
 .list-wrapper a:after{
   content: '';
-  border: solid darkslategray;
+  border: solid #788b91;
   border-width:  0 1px 1px 0;
   display: inline-block;
   padding: 2px;
@@ -193,7 +193,7 @@ input[type="file"]{
 }
 
 .profile-card{
-  background: #eaeaea;
+  background: #cfd8de;
   border-radius: 6px;
   overflow: hidden;
   position: relative;
@@ -202,7 +202,7 @@ input[type="file"]{
 }
 
 .profile-card .bar{
-  background-color: darkgrey;
+  background-color: #788b91;
   height: 35px;
   width: 100%;
   display: block;
@@ -224,7 +224,7 @@ input[type="file"]{
   position: absolute;
   height: 15px;
   width: 15px;
-  background-color: #eaeaea;
+  background-color: #cfd8de;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
@@ -273,7 +273,7 @@ input[type="file"]{
 }
 
 .meetings-list li{
-  background-color: #eaeaea;
+  background-color: #cfd8de;
   color: #727171;
   padding: 6px 15px 6px 15px; 
   position: relative;
@@ -294,7 +294,7 @@ input[type="file"]{
 
 .meetings-list a:after{
   content: '';
-  border: solid darkslategray;
+  border: solid #788b91;
   border-width:  0 1px 1px 0;
   display: inline-block;
   padding: 2px;
@@ -315,7 +315,7 @@ input[type="file"]{
 }
 
 .virtual-scroll-section textarea{
-  background-color: #eaeaea;
+  background-color: #f3f3f3;
   color: #727171;
   min-height: 120px;
   width: 100%;
@@ -330,5 +330,5 @@ input[type="file"]{
   bottom: 15px;
   right: 15px;
   background-color: #727171;
-  color: #eaeaea;
+  color: #f3f3f3;
 }

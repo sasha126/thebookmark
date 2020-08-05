@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Profile from './profile';
-import PastMeetings from './pastMeetings';
-import VirtualScribe from './virtualScribe';
+import Profile from './Profile';
+import PastMeetings from './PastMeetings';
+import VirtualScribe from './VirtualScribe';
 class Right extends Component {
    
     render() {

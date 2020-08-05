@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import userImg from "../images/user.jpg"
 class Profile extends Component {
-    constructor(props) {
-        super(props);
-      }
+    
     render() {
         const doneList = [
             { id: 1,
