@@ -11,8 +11,11 @@
 margin:0;
 padding: 0;
 }
+
 body
 {
+  display: flex;
+  flex-wrap: wrap;
 font-family: 'Raleway';
 }
 
@@ -180,9 +183,11 @@ input[type="file"]{
 /* Right */
 .right{
   width: 56%;
-  float: right;
+  float: none;
+  display: flex;
+  flex-wrap: wrap;
   overflow: hidden;
-  padding-left: 15px;;
+  padding-left: 15px;
 }
 
 .profile-section{
@@ -260,6 +265,7 @@ input[type="file"]{
   font-size: 12px;
   margin-left: 10px;
   margin-right: 10px;
+  list-style: none;
 }
 
 .past-meeting-section{
@@ -305,7 +311,9 @@ input[type="file"]{
 }
 
 .virtual-scroll-section{
-  float: left;
+  float: none;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   position: relative;
 }
