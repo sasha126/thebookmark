@@ -12,6 +12,7 @@ margin:0;
 padding: 0;
 }
 
+
 body
 {
   display: flex;
@@ -87,6 +88,8 @@ h2{
   color: #a9203a;
   margin-bottom: 10px;
 }
+
+
 
 input[type="text"]{
   width: 80%;
@@ -190,6 +193,7 @@ input[type="file"]{
   padding-left: 15px;
 }
 
+
 .profile-section{
   width: 48%;
   float: left;
@@ -274,9 +278,15 @@ input[type="file"]{
 }
 
 .meetings-list{
-  height: 290px;
+  height: 300px;
+  
   overflow-y: scroll;
 }
+
+.pm {
+  padding-left: 15px;
+}
+
 
 .meetings-list li{
   background-color: #cfd8de;
