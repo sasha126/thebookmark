@@ -89,8 +89,6 @@ h2{
   margin-bottom: 10px;
 }
 
-
-
 input[type="text"]{
   width: 80%;
   background-color: #eaeaea;;
@@ -107,6 +105,26 @@ input[type="text"]::placeholder{
 
 }
 input[type="text"]:focus{
+  border: none;
+  outline: none;
+}
+
+input[type="password"]{
+  width: 80%;
+  background-color: #eaeaea;;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 10px;
+  border: none;
+  margin-bottom: 10px;
+
+}
+input[type="password"]::placeholder{
+  color: #292f31;
+  font-size: 12px;
+
+}
+input[type="password"]:focus{
   border: none;
   outline: none;
 }
@@ -349,4 +367,54 @@ input[type="file"]{
   right: 15px;
   background-color: #727171;
   color: #f3f3f3;
+}
+
+/*Sign in*/
+.signinform {
+  text-align: center;
+  
+    position: absolute;
+    top:25%;
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+hr {
+  width: 60%;
+  margin-left: 20%;
+}
+
+.sub {
+  width:20%;
+
+}
+
+.username  {
+  max-width: 40%;
+  background-color: #eaeaea;;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 10px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.password {
+  max-width: 40%;
+  background-color: #eaeaea;;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 10px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.title {
+  background: #a9203a;
+  padding: 20px 10px;
+  color: #ffffff;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
 }

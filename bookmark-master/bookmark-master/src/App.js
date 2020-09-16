@@ -1,18 +1,18 @@
 import React from 'react';
 import './App.css';
-import Navbar from './components/navBar';
-import Left from './components/left';
-import Right from './components/right';
+import NavBar from './components/NavBar'
+
+import SignIn from './components/SignIn';
+import Title from './components/Title';
+
 function App() {
   return (
     <div className="App">
-    <Navbar />
+<Title/>
+
+     <SignIn />
   
-    <main>
-    <Left />
-    <Right />
-    </main>
-    </div>
+      </div>
   );
 }
 
