@@ -1,5 +1,22 @@
 import React, { Component } from 'react';
 class DownloadLinks extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+        requests: [],
+        isLoaded: false,
+        eror:null
+        }
+      }
+
+componentDidMount() {
+  fetch(`http://ip.jsontest.com/`)
+            .then(res => res.json())
+            .then(requests => this.setState({requests}, 
+              () => console.log('requests fetched',requests)));
+}
+
     render() {
           const list = [
             { id: 1,
