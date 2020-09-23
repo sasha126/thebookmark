@@ -22,7 +22,7 @@ def createUser(username, password):
             "transcriptcount" : 0
         }
 
-        userjson = json.dumps(details)
+        userjson = json.dumps(details, indent=4)
         with open (path+"/AccountDetails/userdetails.json", "w") as outfile:
             outfile.write(userjson)
     
@@ -47,8 +47,6 @@ def signinuser(username, password):
     else:
         return False, "User is not registered to TheBookmark"
     
-    return False
-
 def deleteAllUsers():
     path = './Database/Users/'
     shutil.rmtree(path)
@@ -56,8 +54,8 @@ def deleteAllUsers():
     return True, "All users are deleted from the database"
 
 def saveFile(username, file):
-    print(username)
-    print(file)
+    #print(username)
+    #print(file)
 
     path = './Database/Users/'+username
 
@@ -77,18 +75,31 @@ def saveFile(username, file):
             }
 
             os.mkdir(path+'/Videos/Video '+str(videocount))
-
+            vpath = path+'/Videos/Video '+str(videocount)
             file.save(os.path.join(path+'/Videos/Video '+str(videocount), 'video.mp4'))
             
 
         with open (path+"/AccountDetails/userdetails.json", "w") as outfile:
-            userjson = json.dumps(details)
-            print(userjson)
+            userjson = json.dumps(details, indent=4)
+            #print(userjson)
             outfile.write(userjson)
+
+        with open(vpath+"/video"+str(videocount)+"details.json", "w") as voutfile:
+            vdetails = {
+                "username" : username,
+                "videono" : videocount,
+                "savestatus"  : "Done",
+                "audiosavedstatus" : "Not Done",
+                "assemblystatus" : "Not Done",
+                "transcriptstatus" : "Not Done",
+                "summarystatus" : "Not Done"
+            } 
+            vjson = json.dumps(vdetails, indent=4)
+            voutfile.write(vjson)
     else:
         return False, "User is not registered to TheBookmark", -1
 
-    print("As of now user has "+str(videocount))
+    #print("As of now user has "+str(videocount))
 
 
     return True, "Video is stored succesfully", videocount

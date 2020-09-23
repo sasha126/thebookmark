@@ -3,7 +3,7 @@ import bookmark
 import usermanagement
 
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
 
 @app.after_request
 def after_request(response):
@@ -11,6 +11,8 @@ def after_request(response):
   response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
   return response
+
+# --------------------------
 
 @app.route('/')
 def index():
@@ -37,6 +39,7 @@ def signin():
             "message" : msg
         }
 
+    return "Done"
 
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -80,12 +83,16 @@ def receiveVideo():
     receivedfile = request.files['video']
     cond, msg, videonum = usermanagement.saveFile(username, receivedfile)
     bookmark.saveAudio(username, videonum)
+    url = bookmark.uploadToAAI(username, videonum)
+    cond, msg = bookmark.speechToTextAAI(username, videonum, url)
+    cond, msg1 = bookmark.summarizeText(username, videonum, msg)
     
     if cond:
         return {
             "status" : "Success",
             "condition" : cond,
-            "message" : msg
+            "message" : msg,
+            "summary" : msg1
         }
     else:
         return {
