@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import Title from './Title'
-import SignUp from './SignUp'
-import NavBar from './NavBar'
-import Left from './Left'
-import Right from './Right'
+import SignIn from './SignIn'
 import axios from 'axios';
 
-class SignIn extends Component {
+class SignUp extends Component {
 constructor() {
     super();
     this.state = {
@@ -19,7 +16,6 @@ constructor() {
     this.handleChange = this.handleChange.bind(this);
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.signup = this.signup.bind(this);
 }
 
 handleChange = (e) => {
@@ -39,7 +35,7 @@ handleChange = (e) => {
 
     var host = "http://192.168.1.35:5000"
 
-    axios.post(host+'/signin', {
+    axios.post(host+'/signup', {
       "username" : this.state.UN,
       "password" : this.state.pswd
   }).then(response=>{
@@ -57,21 +53,9 @@ handleChange = (e) => {
   next() {
     ReactDOM.render(<div className="App">
  
-      <NavBar />
-      <main>
-      <Left />
-      <Right />
-      </main>
-  
-      </div>,document.getElementById('root'));
-  }
-
-  signup() {
-    ReactDOM.render(<div className="App">
- 
  <Title/>
 
-<SignUp />
+<SignIn />
   
       </div>,document.getElementById('root'));
   }
@@ -83,7 +67,7 @@ render() {
          
             <br />
             <br />
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
             <br />
             <hr color="#a9203a" size="3" />
             <br />
@@ -116,8 +100,8 @@ render() {
                 </button>
                 <br />
                 <br />
-                <a href="#" onClick={this.signup}>
-                  Sign Up now
+                <a href="#">
+                  Sign In now
                 </a>
                 <br />
                 <br />
@@ -131,4 +115,4 @@ render() {
   }
 
 }
-export default SignIn
+export default SignUp

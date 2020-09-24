@@ -37,7 +37,7 @@ handleChange = (e) => {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    var host = "http://192.168.1.35:5000"
+    var host = "http://192.168.1.34:5000"
 
     axios.post(host+'/signin', {
       "username" : this.state.UN,
@@ -59,7 +59,7 @@ handleChange = (e) => {
  
       <NavBar />
       <main>
-      <Left />
+      <Left loggedInUser={this.state.UN}/>
       <Right />
       </main>
   
