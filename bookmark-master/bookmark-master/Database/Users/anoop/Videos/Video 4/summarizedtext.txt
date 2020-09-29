@@ -1,0 +1,1 @@
+ You're standing at a crowded railway station. Waiting for a friend as you wait. Hundreds of people pass you by each one looks different. Recognizing people's faces is something we humans do effortlessly. We cannot describe every detail of how we recognize someone. The trouble is that to program a computer. That technique is machine learning.
