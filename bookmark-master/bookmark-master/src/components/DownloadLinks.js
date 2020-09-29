@@ -10,28 +10,23 @@ class DownloadLinks extends Component {
         }
       }
 
-componentDidMount() {
-  fetch(`http://ip.jsontest.com/`)
-            .then(res => res.json())
-            .then(requests => this.setState({requests}, 
-              () => console.log('requests fetched',requests)));
-}
-
     render() {
           const list = [
             { id: 1,
-              title: 'View and Download Transcript',
+              title: 'Download Transcript',
               link: 'www.google.com',
             },
+            
             { id: 2,
-              title: 'View Speaker Contribution',
-              link: 'www.google.com',
-            },
-            { id: 3,
-              title: 'View and Download Summary',
+              title: 'Download Summary',
               link: 'www.google.com',
             },
 
+            {
+              id: 3,
+              title: 'View Video',
+              link: 'www.google.com',
+            }
           ];
 
           const listItems = list.map(item => (

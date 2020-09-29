@@ -6,6 +6,9 @@ import NavBar from './NavBar'
 import Left from './Left'
 import Right from './Right'
 import axios from 'axios';
+import logo from "../images/logo.png";
+import Profile from './Profile';
+import Summary from './Summary';
 
 class SignIn extends Component {
 constructor() {
@@ -45,22 +48,22 @@ handleChange = (e) => {
   }).then(response=>{
       console.log(response.data);
       if(response.data['status']=="Success"){
-        alert("Success");
+        alert(response.data['message']);
           this.next();
       }
       else{
-          alert("Failed");
+          alert(response.data['message']);
       }
   }).catch(error=>console.error(error));
   }
 
   next() {
+
     ReactDOM.render(<div className="App">
  
-      <NavBar />
+      <NavBar loggedInUser={this.state.UN}/>
       <main>
-      <Left loggedInUser={this.state.UN}/>
-      <Right />
+             <Right loggedInUser={this.state.UN}/>
       </main>
   
       </div>,document.getElementById('root'));
@@ -80,7 +83,7 @@ render() {
     return (
       
         <div className="signinform">
-         
+         <img className="logo" src={logo}/>
             <br />
             <br />
             <h1>Sign In</h1>
