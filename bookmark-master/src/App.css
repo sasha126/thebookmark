@@ -32,40 +32,28 @@ header{
   padding: 20px 10px;
 }
 
-header h1{
-  color: #ffffff;
-  width: 80%;
-  display: inline-block;
-}
-
-header span,header span:after, header span:before{
-  height: 2px;
-  width: 20px;
-  background-color: #ffffff;
-}
-
 header span{
   position: absolute;
-  top:-15px;
-  right:20px;
+  top:1%;
+  left:93%;
+  width: 10%;
 }
 
-header span::before{
-  position: absolute;
-  top:10px;
-  content: '';
-}
-
-header span::after{
-  position: absolute;
-  bottom:10px;
-  content: '';
-}
-
-nav{
-  display: inline-block;
-  position: relative;
+header h1{
+  color: #ffffff;
   width: 20%;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header button {
+  width:50%;
+  border-radius: 5px;
+  background: #ccc;
+  color: #000;
+  box-shadow: 3px 3px #000;
 }
 
 main{
@@ -73,7 +61,7 @@ main{
   overflow: hidden;
 }
 
-/* Left */
+
 .left{
   width: 85%;
   float: left;
@@ -247,13 +235,23 @@ input[type="file"]{
     width: 85%;
     float: left;
     overflow: hidden;
-    padding-left: 7.5%;
-    padding-top: 1.5%;
+    padding-left: 8%;
+    padding-top: 2.5%;
 }
 
 .posi {
   width: 100%;
   display: inline-flex;
+  padding-top: 3%;
+}
+
+#sync {
+  width: 15%;
+}
+
+#syncout {
+  width: 100%;
+  text-align: center;
 }
 
 .posi .rightside {
@@ -265,8 +263,20 @@ input[type="file"]{
   padding:5%;
 }
 
+.profile-car .username {
+  max-width: 80%;
+}
+
+.profile-car .password {
+  max-width: 80%;
+}
+
+.posi ul p {
+  text-align: center;
+}
+
 .posi .profile-car {
-  width: 50%;
+    width: 50%;
   background: #cfd8de;
   border-radius: 6px;
   overflow: hidden;
@@ -276,7 +286,7 @@ input[type="file"]{
 
 .profile-car .bar{
   background-color: #788b91;
-  height: 35px;
+  height: 40px;
   width: 100%;
   display: block;
   position: relative;
@@ -309,11 +319,11 @@ input[type="file"]{
 .disp{
   width:94%;
   background-color: #ffffff;
-  padding: 6px ;
+  padding: 8px ;
   position: relative;
   margin-bottom: 10px;
   color: #727171;
-  font-size: 12px;
+  font-size: 13px;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -335,6 +345,12 @@ input[type="file"]{
   padding-left: 5%;
   padding-top: 5%;
   padding-right: 5%;
+  padding-bottom: 5%;
+
+}
+
+.pm h2{
+  padding-left: 10%;
 }
 
 .meetings-list li{
@@ -369,6 +385,10 @@ input[type="file"]{
   position: absolute;
 }
 
+.pm p{
+padding-left: 10%;
+}
+
 .virtual-scribe-section{
   float: none;
   display: flex;
@@ -385,7 +405,7 @@ input[type="file"]{
 .virtual-scribe-section input[type='textarea']{
   background-color: #f3f3f3;
   color: #727171;
-  min-height: 90px;
+  min-height: 120px;
   width: 98%;
   padding: 10px;
   outline: none;
@@ -409,7 +429,6 @@ input[type="file"]{
   padding-bottom: 1%;
 }
 
-/*Sign in*/
 .signinform {
   text-align: center;
   
@@ -457,4 +476,59 @@ hr {
   width: 100%;
   position: absolute;
   overflow: hidden;
+}
+
+ul, li {
+    list-style: none;
+}
+
+#container {
+    width: 80%;
+    margin: 0 10%;
+    overflow: auto;
+}
+
+i {
+    margin-right: 1em;
+}
+
+.faq li {
+    padding: 1.25em;
+}
+
+.faq li.headhere {
+    font-weight: bold;
+    font-size: 120%;
+    cursor: pointer;
+}
+
+.faq li.headhere:nth-child(1){
+    background: #eee;
+}
+
+.faq li.hide {
+    background: #ccc;
+    display: none;
+    border-bottom: 1px solid white;
+}
+
+/********* MEDIA QUERIES ************/
+@media (max-width: 800px) {
+    #container {
+        width: 90%;
+        margin: 0 5%;
+    }
+    
+    
+    .faq li {
+      
+        text-align: center;
+    }
+    
+    .faq li.hide {
+        width: 85%;
+        
+        margin-left: 5%;
+    }
+    
 }

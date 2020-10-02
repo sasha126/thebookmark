@@ -26,8 +26,6 @@ class Summary extends Component {
       handleClick(e) {
         e.preventDefault();
 
-        var host = "http://192.168.1.34:5000"
-
     if(this.props.loggedInUser==""){
       alert("No user is currently logged in!\nYou must be signed-in to use our services");
       return;
@@ -45,7 +43,7 @@ class Summary extends Component {
       formData.append("videokeyword", this.state.keywords);
       formData.append("username", this.props.loggedInUser);
       
-      axios.post(host+'/receiveVideo', formData, {headers : {'Content-Type':'multipart/form-data'}}
+      axios.post(this.props.host+'/receiveVideo', formData, {headers : {'Content-Type':'multipart/form-data'}}
       ).then(response=>{
           
           console.log(response.data);

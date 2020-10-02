@@ -5,8 +5,8 @@ import SignIn from './SignIn'
 import axios from 'axios';
 
 class SignUp extends Component {
-constructor() {
-    super();
+constructor(props) {
+    super(props);
     this.state = {
       UN: "",
       pswd: "",
@@ -69,9 +69,7 @@ handleChange = (e) => {
       return false;
     }
 
-    var host = "http://192.168.1.34:5000"
-
-    axios.post(host+'/signup', {
+    axios.post(this.props.host+'/signup', {
       "username" : this.state.UN,
       "password" : this.state.pswd,
       "email" : this.state.email,

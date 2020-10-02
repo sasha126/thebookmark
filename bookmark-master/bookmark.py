@@ -6,7 +6,7 @@ import time
 import requests
 import summarize
 
-token = '23e4051922b3436f8bffb686620af2e2'
+token = 'cc0738780ad94cd29c92750529eb5f5a'
 ai = aai.Client(token=token)
 
 def saveAudio(username, video):
@@ -14,20 +14,26 @@ def saveAudio(username, video):
     command = 'ffmpeg -i "Database/Users/'+username+'/Videos/Video '+str(video)+'/video.mp4" -vn -ab 160k -ac 1 -ar 44100 -vn "Database/Users/'+username+'/Videos/Video '+str(video)+'/audio.mp3"'
     subprocess.call(command, shell=True)
 
-    with open(vpath+"/video"+str(video)+"details.json", "r") as readfile:
+    with open(vpath+"/videodetails.json", "r") as readfile:
         vjson = json.load(readfile)
         username = vjson['username']
         videono = vjson['videono']
+        title = vjson['title']
+        description = vjson['description']
+        keywords = vjson['keywords']
         savestatus = vjson['savestatus']
         audiosavedstatus = vjson['audiosavedstatus']
         assemblystatus = vjson['assemblystatus']
         transcriptstatus = vjson['transcriptstatus']
         summarystatus = vjson['summarystatus']
 
-    with open(vpath+"/video"+str(video)+"details.json", "w") as outfile:
+    with open(vpath+"/videodetails.json", "w") as outfile:
         vdetails = {
                 "username" : username,
                 "videono" : videono,
+                "title" : title,
+                "description" : description,
+                "keywords" : keywords,
                 "savestatus"  : savestatus,
                 "audiosavedstatus" : "Done",
                 "assemblystatus" : assemblystatus,
@@ -49,20 +55,26 @@ def uploadToAAI(username, video):
                          data=read_file(filename))
     #print(response)
 
-    with open(vpath+"/video"+str(video)+"details.json", "r") as readfile:
+    with open(vpath+"/videodetails.json", "r") as readfile:
         vjson = json.load(readfile)
         username = vjson['username']
         videono = vjson['videono']
+        title = vjson['title']
+        description = vjson['description']
+        keywords = vjson['keywords']
         savestatus = vjson['savestatus']
         audiosavedstatus = vjson['audiosavedstatus']
         assemblystatus = vjson['assemblystatus']
         transcriptstatus = vjson['transcriptstatus']
         summarystatus = vjson['summarystatus']
 
-    with open(vpath+"/video"+str(video)+"details.json", "w") as outfile:
+    with open(vpath+"/videodetails.json", "w") as outfile:
         vdetails = {
                 "username" : username,
                 "videono" : videono,
+                "title" : title,
+                "description" : description,
+                "keywords" : keywords,
                 "savestatus"  : savestatus,
                 "audiosavedstatus" : audiosavedstatus,
                 "assemblystatus" : "Done",
@@ -86,20 +98,26 @@ def speechToTextAAI(username, video, url):
     with open(vpath+'/transcribedtext.txt', 'w') as outfile:
         outfile.write(text)
 
-    with open(vpath+"/video"+str(video)+"details.json", "r") as readfile:
+    with open(vpath+"/videodetails.json", "r") as readfile:
         vjson = json.load(readfile)
         username = vjson['username']
         videono = vjson['videono']
+        title = vjson['title']
+        description = vjson['description']
+        keywords = vjson['keywords']
         savestatus = vjson['savestatus']
         audiosavedstatus = vjson['audiosavedstatus']
         assemblystatus = vjson['assemblystatus']
         transcriptstatus = vjson['transcriptstatus']
         summarystatus = vjson['summarystatus']
 
-    with open(vpath+"/video"+str(video)+"details.json", "w") as outfile:
+    with open(vpath+"/videodetails.json", "w") as outfile:
         vdetails = {
                 "username" : username,
                 "videono" : videono,
+                "title" : title,
+                "description" : description,
+                "keywords" : keywords,
                 "savestatus"  : savestatus,
                 "audiosavedstatus" : audiosavedstatus,
                 "assemblystatus" : assemblystatus,
@@ -117,9 +135,39 @@ def summarizeText(username, video, text):
     sentences = summarize.sent_tokenize(text)
     sentence_scores = summarize._score_sentences(sentences, freq_table)
     threshold = summarize._find_average_score(sentence_scores)
-    summary = summarize._generate_summary(sentences, sentence_scores, threshold*0.8)
+    summary = summarize._generate_summary(sentences, sentence_scores, threshold*1.2)
     with open(vpath+'/summarizedtext.txt', 'w') as outfile:
         outfile.write(summary)
+
+    with open(vpath+"/videodetails.json", "r") as readfile:
+        vjson = json.load(readfile)
+        username = vjson['username']
+        videono = vjson['videono']
+        title = vjson['title']
+        description = vjson['description']
+        keywords = vjson['keywords']
+        savestatus = vjson['savestatus']
+        audiosavedstatus = vjson['audiosavedstatus']
+        assemblystatus = vjson['assemblystatus']
+        transcriptstatus = vjson['transcriptstatus']
+        summarystatus = vjson['summarystatus']
+
+    with open(vpath+"/videodetails.json", "w") as outfile:
+        vdetails = {
+                "username" : username,
+                "videono" : videono,
+                "title" : title,
+                "description" : description,
+                "keywords" : keywords,
+                "savestatus"  : savestatus,
+                "audiosavedstatus" : audiosavedstatus,
+                "assemblystatus" : assemblystatus,
+                "transcriptstatus" : transcriptstatus,
+                "summarystatus" : "Done"
+            }
+        vjson = json.dumps(vdetails, indent=4)
+        outfile.write(vjson)
+
     return True, summary
 
 ## HELPER

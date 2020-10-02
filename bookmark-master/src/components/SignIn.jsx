@@ -3,12 +3,9 @@ import ReactDOM from "react-dom";
 import Title from './Title'
 import SignUp from './SignUp'
 import NavBar from './NavBar'
-import Left from './Left'
 import Right from './Right'
 import axios from 'axios';
 import logo from "../images/logo.png";
-import Profile from './Profile';
-import Summary from './Summary';
 
 class SignIn extends Component {
 constructor() {
@@ -16,6 +13,7 @@ constructor() {
     this.state = {
       UN: "",
       pswd: "",
+      host:"http://192.168.1.33:5000",
       requests: [],
     };
 
@@ -40,9 +38,7 @@ handleChange = (e) => {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    var host = "http://192.168.1.34:5000"
-
-    axios.post(host+'/signin', {
+    axios.post(this.state.host+'/signin', {
       "username" : this.state.UN,
       "password" : this.state.pswd
   }).then(response=>{
@@ -63,7 +59,7 @@ handleChange = (e) => {
  
       <NavBar loggedInUser={this.state.UN}/>
       <main>
-             <Right loggedInUser={this.state.UN}/>
+             <Right host={this.state.host} loggedInUser={this.state.UN}/>
       </main>
   
       </div>,document.getElementById('root'));
@@ -74,7 +70,7 @@ handleChange = (e) => {
  
  <Title/>
 
-<SignUp />
+<SignUp host={this.state.host}/>
   
       </div>,document.getElementById('root'));
   }

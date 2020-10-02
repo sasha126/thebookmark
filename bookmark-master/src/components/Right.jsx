@@ -18,7 +18,7 @@ class Right extends Component {
         return (
          <div className="right">
              
-             <Profile loggedInUser={this.props.loggedInUser}/>
+             <Profile host={this.props.host} loggedInUser={this.props.loggedInUser}/>
              
          </div>
             )
